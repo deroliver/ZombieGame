@@ -1,0 +1,28 @@
+﻿Build started 1/1/2016 2:07:54 PM.
+     1>Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\SpaceBall\SpaceBall.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Zombie.cpp
+         Zombie.cpp
+     1>Zombie.cpp(33): warning C4390: ';': empty controlled statement found; is this the intent?
+     1>Zombie.cpp(40): warning C4018: '<': signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib opengl32.lib glew32.lib gengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.lib" /MACHINE:X86 /SAFESEH Release\Agent.obj
+         Release\Bullet.obj
+         Release\Gun.obj
+         Release\Human.obj
+         Release\Level.obj
+         Release\main.obj
+         Release\MainGame.obj
+         Release\Player.obj
+         Release\Zombie.obj
+         Generating code
+         22 of 2040 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           2 functions had inline decision re-evaluated but remain unchanged
+         Finished generating code
+         SpaceBall.vcxproj -> C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe
+     1>Done Building Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\SpaceBall\SpaceBall.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.59

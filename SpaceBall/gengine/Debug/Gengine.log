@@ -1,0 +1,49 @@
+﻿Build started 12/11/2015 8:13:34 PM.
+     1>Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\gengine\gengine.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\gengine.pdb" /Gd /TP /analyze- /errorReport:prompt Camera2D.cpp Errors.cpp gengine.cpp GLSLProgram.cpp ImageLoader.cpp InputManager.cpp IOManager.cpp picoPNG.cpp ResourceManager.cpp Sprite.cpp SpriteBatch.cpp TextureCache.cpp Timing.cpp Window.cpp
+         Window.cpp
+         Timing.cpp
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\timing.cpp(31): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\timing.cpp(34): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\timing.cpp(45): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\timing.cpp(48): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+         TextureCache.cpp
+         SpriteBatch.cpp
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\spritebatch.cpp(25): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\spritebatch.cpp(67): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\spritebatch.cpp(101): warning C4018: '<': signed/unsigned mismatch
+         Sprite.cpp
+         ResourceManager.cpp
+         picoPNG.cpp
+         IOManager.cpp
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\iomanager.cpp(18): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\iomanager.cpp(24): warning C4244: '-=': conversion from 'std::streamoff' to 'int', possible loss of data
+         InputManager.cpp
+         ImageLoader.cpp
+         GLSLProgram.cpp
+         gengine.cpp
+         Errors.cpp
+         Camera2D.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Debug\gengine.lib" /NOLOGO Debug\Camera2D.obj
+         Debug\Errors.obj
+         Debug\gengine.obj
+         Debug\GLSLProgram.obj
+         Debug\ImageLoader.obj
+         Debug\InputManager.obj
+         Debug\IOManager.obj
+         Debug\picoPNG.obj
+         Debug\ResourceManager.obj
+         Debug\Sprite.obj
+         Debug\SpriteBatch.obj
+         Debug\TextureCache.obj
+         Debug\Timing.obj
+         Debug\Window.obj
+         gengine.vcxproj -> C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Debug\gengine.lib
+     1>Done Building Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\gengine\gengine.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.13

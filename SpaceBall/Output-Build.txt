@@ -1,0 +1,19 @@
+﻿1>------ Build started: Project: SpaceBall, Configuration: Debug Win32 ------
+1>  MainGame.cpp
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(23): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(65): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(77): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(116): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(121): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(127): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(128): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(132): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(149): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(150): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(157): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(158): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(173): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(221): warning C4018: '<': signed/unsigned mismatch
+1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\spaceball\maingame.cpp(225): warning C4018: '<': signed/unsigned mismatch
+1>  SpaceBall.vcxproj -> C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Debug\SpaceBall.exe
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
