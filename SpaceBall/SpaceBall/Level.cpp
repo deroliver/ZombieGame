@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <gengine/Errors.h>
+#include <gengine/GengineErrors.h>
 #include <gengine/ResourceManager.h>
 
 

@@ -2,7 +2,7 @@
 
 #include "picoPNG.h"
 #include "IOManager.h"
-#include "Errors.h"
+#include "GengineErrors.h"
 
 namespace gengine {
 

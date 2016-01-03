@@ -1,5 +1,7 @@
 #pragma once
 
+#include <gengine/AudioEngine.h>
+
 #include <glm/glm.hpp>
 
 #include "Bullet.h"
@@ -9,7 +11,8 @@
 
 class Gun {
 public:
-	Gun(std::string name, int fireRate, int bulletsPerShot, float spread, float bulletSpeed, float bulletDamage);
+	Gun(std::string name, int fireRate, int bulletsPerShot, 
+		float spread, float bulletSpeed, float bulletDamage, gengine::SoundEffect fireEffect);
 	~Gun();
 
 	void update(bool isMouseDown, const glm::vec2& pos, const glm::vec2& direction, std::vector<Bullet>& bullets, float deltaTime);
@@ -18,6 +21,8 @@ public:
 private:
 
 	void fire(const glm::vec2& direction, const glm::vec2& pos, std::vector<Bullet>& bullets);
+
+	gengine::SoundEffect m_fireEffect;
 
 	std::string m_name;
 

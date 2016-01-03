@@ -6,6 +6,9 @@
 #include <gengine/InputManager.h>
 #include <gengine/SpriteBatch.h>
 #include <gengine/SpriteFont.h>
+#include <gengine/AudioEngine.h>
+#include <gengine/ParticleBatch2D.h>
+#include <gengine/ParticleEngine2D.h>
 
 #include "Level.h"
 #include "Player.h"
@@ -57,6 +60,9 @@ private:
 	/// Draws the HUD
 	void drawHud();
 
+	/// Adds blood particles to the ParticleEngine
+	void addBlood(const glm::vec2& position, int numParticles);
+
     /// Member Variables
     gengine::Window m_window; ///< The game window
     
@@ -69,6 +75,9 @@ private:
 
 	gengine::SpriteBatch m_agentSpriteBatch; ///< Draws all agents
 	gengine::SpriteBatch m_hudSpriteBatch; ///< Draws the hud
+
+	gengine::ParticleEngine2D m_particleEngine;
+	gengine::ParticleBatch2D* m_bloodParticleBatch;
 
 	std::vector<Level*> m_levels; /// Vector of all levels
 
@@ -88,6 +97,8 @@ private:
 	int m_numZombiesKilled;
 
 	gengine::SpriteFont* m_spriteFont;
+
+	gengine::AudioEngine m_audioEngine;
 
 	GameState m_gameState;
 };

@@ -1,16 +1,20 @@
-﻿Build started 1/1/2016 1:36:29 PM.
+﻿Build started 1/2/2016 3:48:25 PM.
      1>Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\gengine\gengine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\gengine.pdb" /Gd /TP /analyze- /errorReport:prompt Camera2D.cpp
-         Camera2D.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\gengine.pdb" /Gd /TP /analyze- /errorReport:prompt ParticleBatch2D.cpp ParticleEngine2D.cpp
+         ParticleBatch2D.cpp
+         ParticleEngine2D.cpp
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\gengine.lib" /NOLOGO /LTCG Release\Camera2D.obj
-         Release\Errors.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\gengine.lib" /NOLOGO /LTCG Release\AudioEngine.obj
+         Release\Camera2D.obj
+         Release\GengineErrors.obj
          Release\gengine.obj
          Release\GLSLProgram.obj
          Release\ImageLoader.obj
          Release\InputManager.obj
          Release\IOManager.obj
+         Release\ParticleBatch2D.obj
+         Release\ParticleEngine2D.obj
          Release\picoPNG.obj
          Release\ResourceManager.obj
          Release\Sprite.obj
@@ -24,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.62
+Time Elapsed 00:00:01.23

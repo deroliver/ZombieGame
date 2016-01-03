@@ -1,12 +1,35 @@
-﻿Build started 1/1/2016 2:07:54 PM.
+﻿Build started 1/2/2016 3:52:29 PM.
      1>Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\SpaceBall\SpaceBall.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Zombie.cpp
-         Zombie.cpp
-     1>Zombie.cpp(33): warning C4390: ';': empty controlled statement found; is this the intent?
-     1>Zombie.cpp(40): warning C4018: '<': signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt MainGame.cpp
+         MainGame.cpp
+     1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\GLTexture.h(7): warning C4099: 'gengine::GLTexture': type name first seen using 'class' now seen using 'struct'
+         c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\GLTexture.h(7): note: see declaration of 'gengine::GLTexture'
+     1>MainGame.cpp(29): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(96): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>MainGame.cpp(109): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(145): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>MainGame.cpp(151): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>MainGame.cpp(187): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(192): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(198): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(199): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(203): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(220): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(221): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(228): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(229): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(237): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(249): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(251): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(278): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(324): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+     1>MainGame.cpp(372): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(379): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(386): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(434): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib opengl32.lib glew32.lib gengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.lib" /MACHINE:X86 /SAFESEH Release\Agent.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_mixer.lib opengl32.lib glew32.lib gengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.lib" /MACHINE:X86 /SAFESEH Release\Agent.obj
          Release\Bullet.obj
          Release\Gun.obj
          Release\Human.obj
@@ -16,13 +39,13 @@
          Release\Player.obj
          Release\Zombie.obj
          Generating code
-         22 of 2040 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+         2 of 2428 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
            0 functions were new in current compilation
-           2 functions had inline decision re-evaluated but remain unchanged
+           1 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          SpaceBall.vcxproj -> C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe
      1>Done Building Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\SpaceBall\SpaceBall.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.59
+Time Elapsed 00:00:01.61

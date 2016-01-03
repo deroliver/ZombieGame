@@ -1,8 +1,12 @@
 #include "MainGame.h"
 
+#include <glm/gtx/rotate_vector.hpp>
+
 #include <gengine/gengine.h>
 #include <gengine/Timing.h>
-#include <gengine/Errors.h>
+#include <gengine/GengineErrors.h>
+#include <gengine/ResourceManager.h>
+#include <gengine/Vertex.h>
 
 #include <SDL/SDL.h>
 #include <iostream>
@@ -33,6 +37,9 @@ void MainGame::run() {
 
 	initLevel();
 		
+	gengine::Music music =  m_audioEngine.loadMusic("Sound/scary.mp3");
+	music.play(-1);
+
 	gameLoop();
 	
 }
@@ -41,6 +48,9 @@ void MainGame::initSystems() {
 
 	// Initialize our game engine
 	gengine::init();
+
+	// Initialize sound 
+	m_audioEngine.init();
 
 	// Create the window
 	m_window.create("ZombieGame", m_screenWidth, m_screenHeight, 0);
@@ -62,6 +72,11 @@ void MainGame::initSystems() {
 	m_camera.init(m_screenWidth, m_screenHeight);
 	m_hudCamera.init(m_screenWidth, m_screenHeight);
 	m_hudCamera.setPosition(glm::vec2(m_screenWidth / 2, m_screenHeight /2 ));
+
+	// Initialize particles
+	m_bloodParticleBatch = new gengine::ParticleBatch2D();
+	m_bloodParticleBatch->init(1000, 0.05f, gengine::ResourceManager::getTexture("Textures/particle.png"));
+	m_particleEngine.addParticleBatch(m_bloodParticleBatch);
 }
 
 
@@ -79,6 +94,7 @@ void MainGame::initLevel() {
 
 	std::mt19937 randomEngine;
 	randomEngine.seed(time(nullptr));
+
 	std::uniform_int_distribution<int> randPosX(1, m_levels[m_currentLevel]->getWidth() - 1);
 	std::uniform_int_distribution<int> randPosY(1, m_levels[m_currentLevel]->getHeight() - 1);
 
@@ -97,9 +113,9 @@ void MainGame::initLevel() {
 
 	// Set up the player's guns
 	const float BULLETm_SPEED = 30;
-	m_player->addGun(new Gun("Magnum", 30, 1, .1f, BULLETm_SPEED, 30));
-	m_player->addGun(new Gun("Shotgun", 40, 20, .6f, BULLETm_SPEED, 4));
-	m_player->addGun(new Gun("MP5", 5, 1, .3f, BULLETm_SPEED, 15));
+	m_player->addGun(new Gun("Magnum", 30, 1, .1f, BULLETm_SPEED, 30, m_audioEngine.loadSoundEffect("Sound/shots/pistol.wav")));
+	m_player->addGun(new Gun("Shotgun", 40, 20, .6f, BULLETm_SPEED, 4, m_audioEngine.loadSoundEffect("Sound/shots/shotgun.wav")));
+	m_player->addGun(new Gun("MP5", 4, 1, .3f, BULLETm_SPEED, 15, m_audioEngine.loadSoundEffect("Sound/shots/cg1.wav")));
 }
 
 void MainGame::initShaders() {
@@ -148,10 +164,12 @@ void MainGame::gameLoop() {
 			float deltaTime = std::min(totalDeltaTime, MAXm_DELTAm_TIME);
 			updateAgents(deltaTime);
 			updateBullets(deltaTime);
+			m_particleEngine.update(totalDeltaTime);
 			totalDeltaTime -= deltaTime;
 			i++;
 		}
-		
+	
+
 		m_camera.setPosition(m_player->getPosition());
 		m_camera.update();
 		m_hudCamera.update();
@@ -159,7 +177,7 @@ void MainGame::gameLoop() {
 		drawGame();
 
 		m_fps = fpsLimiter.end();
-		std::cout << m_fps << std::endl;
+		//std::cout << m_fps << std::endl;
 
 	}
 }
@@ -232,6 +250,9 @@ void MainGame::updateBullets(float deltaTime) {
 		wasBulletRemoved = false;
 		for (int j = 0; j < m_zombies.size();) {
 			if (m_bullets[i].collideWithAgent(m_zombies[j])) {
+				// Add blood
+				addBlood(m_bullets[i].getPosition(), 5);
+
 				if (m_zombies[j]->applyDamage(m_bullets[i].getDamage())) {
 					delete m_zombies[j];
 					m_zombies[j] = m_zombies.back();
@@ -256,6 +277,9 @@ void MainGame::updateBullets(float deltaTime) {
 		if (!wasBulletRemoved) {
 			for (int j = 1; j < m_humans.size();) {
 				if (m_bullets[i].collideWithAgent(m_humans[j])) {
+					// Add blood
+					addBlood(m_bullets[i].getPosition(), 5);
+
 					if (m_humans[j]->applyDamage(m_bullets[i].getDamage())) {
 						delete m_humans[j];
 						m_humans[j] = m_humans.back();
@@ -367,6 +391,9 @@ void MainGame::drawGame() {
 
 	m_agentSpriteBatch.renderBatch();
 
+	// Render the particles
+	m_particleEngine.draw(&m_agentSpriteBatch);
+
 	// Draw the Heads Up Display
 	drawHud();
 
@@ -399,4 +426,18 @@ void MainGame::drawHud() {
 	m_hudSpriteBatch.end();
 	m_hudSpriteBatch.renderBatch();
 
+}
+
+
+void MainGame::addBlood(const glm::vec2& position, int numParticles) {
+
+	static std::mt19937 randEngine(time(nullptr));
+	static std::uniform_real_distribution<float> randAngle(0.0f, 360.0f);
+
+	glm::vec2 vel(2.0f, 0.0f);
+	gengine::ColorRGBA8 col(255, 0, 0, 255);
+
+	for (int i = 0; i < numParticles; i++) {
+		m_bloodParticleBatch->addParticle(position, glm::rotate(vel, randAngle(randEngine)), col, 25.0f);
+	}
 }
