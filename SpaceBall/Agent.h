@@ -33,9 +33,11 @@ protected:
 	void collideWithTile(glm::vec2 tilePosition);
 
 	glm::vec2 m_position;
+	glm::vec2 m_direction = glm::vec2(1.0f, 0.0f);
 	gengine::ColorRGBA8 m_color;
 	float m_speed;
 	float m_health;
+	GLuint m_textureID;
 
 };
 

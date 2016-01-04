@@ -1,4 +1,4 @@
-﻿Build started 1/2/2016 3:52:29 PM.
+﻿Build started 1/3/2016 5:50:15 PM.
      1>Project "C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\SpaceBall\SpaceBall.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt MainGame.cpp
@@ -6,28 +6,32 @@
      1>c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\GLTexture.h(7): warning C4099: 'gengine::GLTexture': type name first seen using 'class' now seen using 'struct'
          c:\users\oliver\documents\visual studio 2015\projects\spaceball\gengine\GLTexture.h(7): note: see declaration of 'gengine::GLTexture'
      1>MainGame.cpp(29): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(96): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>MainGame.cpp(109): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(145): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-     1>MainGame.cpp(151): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-     1>MainGame.cpp(187): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(192): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(198): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(199): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(203): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(220): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(221): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(228): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(229): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(237): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(116): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>MainGame.cpp(129): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(165): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>MainGame.cpp(171): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>MainGame.cpp(207): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(212): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(218): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(219): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(223): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(240): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(241): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(248): warning C4018: '<': signed/unsigned mismatch
      1>MainGame.cpp(249): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(251): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(278): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(324): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-     1>MainGame.cpp(372): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(379): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(386): warning C4018: '<': signed/unsigned mismatch
-     1>MainGame.cpp(434): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>MainGame.cpp(257): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(271): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(273): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(300): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(346): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+     1>MainGame.cpp(394): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(401): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(408): warning C4018: '<': signed/unsigned mismatch
+     1>MainGame.cpp(456): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>MainGame.cpp(471): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>MainGame.cpp(478): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+     1>MainGame.cpp(479): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+     1>MainGame.cpp(484): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib SDL2_ttf.lib SDL2_mixer.lib opengl32.lib glew32.lib gengine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver\documents\visual studio 2015\Projects\SpaceBall\Release\SpaceBall.lib" /MACHINE:X86 /SAFESEH Release\Agent.obj
          Release\Bullet.obj
@@ -39,7 +43,7 @@
          Release\Player.obj
          Release\Zombie.obj
          Generating code
-         2 of 2428 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+         2 of 2637 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
            0 functions were new in current compilation
            1 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
@@ -48,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.61
+Time Elapsed 00:00:01.69

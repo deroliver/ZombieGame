@@ -63,6 +63,9 @@ private:
 	/// Adds blood particles to the ParticleEngine
 	void addBlood(const glm::vec2& position, int numParticles);
 
+	/// Adds smoke particles when the player fires the gun
+	void addSparks(const glm::vec2& position, const glm::vec2& direction, int numParticles);
+
     /// Member Variables
     gengine::Window m_window; ///< The game window
     
@@ -78,6 +81,7 @@ private:
 
 	gengine::ParticleEngine2D m_particleEngine;
 	gengine::ParticleBatch2D* m_bloodParticleBatch;
+	gengine::ParticleBatch2D* m_sparksParticleBatch;
 
 	std::vector<Level*> m_levels; /// Vector of all levels
 

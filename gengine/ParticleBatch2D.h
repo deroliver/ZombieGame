@@ -1,5 +1,7 @@
 #pragma once
 
+#include <functional>
+
 #include <glm/glm.hpp>
 
 #include "Vertex.h"
@@ -9,26 +11,29 @@
 namespace gengine {
 
 	class Particle2D {
-		friend class ParticleBatch2D;
 	public:
+		glm::vec2 position = glm::vec2(0.0f);
+		glm::vec2 velocity = glm::vec2(0.0f);
+		ColorRGBA8 color;
+		float life = 0.0f;
+		float width = 0.0f;
 
-		void update(float deltaTime);
-
-	private:
-		glm::vec2 m_position = glm::vec2(0.0f);
-		glm::vec2 m_velocity = glm::vec2(0.0f);
-		ColorRGBA8 m_color;
-		float m_life = 0.0f;
-		float m_width = 0.0f;
 	};
 
+	inline void defaultParticleUpdate(Particle2D& particle, float deltaTime) {
+		particle.position += particle.velocity * deltaTime;
+	}
+	
 
 class ParticleBatch2D {
 public:
 	ParticleBatch2D();
 	~ParticleBatch2D();
 
-	void init(int maxParticles, float decayRate, GLTexture texture);
+	void init(int maxParticles, 
+			  float decayRate, 
+		      GLTexture texture,
+			  std::function<void(Particle2D&, float)> updateFunc = defaultParticleUpdate);
 
 	void update(float deltaTime);
 
@@ -43,6 +48,7 @@ private:
 
 	int findFreeParticle();
 
+	std::function<void(Particle2D&, float)> m_updateFunc;
 	float m_decayRate = 0.1f; ///< The rate at which the particles dissapear
 	Particle2D* m_particles = nullptr;
 	int m_maxParticles = 0;

@@ -75,8 +75,28 @@ void MainGame::initSystems() {
 
 	// Initialize particles
 	m_bloodParticleBatch = new gengine::ParticleBatch2D();
-	m_bloodParticleBatch->init(1000, 0.05f, gengine::ResourceManager::getTexture("Textures/particle.png"));
+	m_bloodParticleBatch->init(1000, 0.05f, gengine::ResourceManager::getTexture("Textures/particle.png"), 
+							   [](gengine::Particle2D& particle, float deltaTime) {	
+			particle.position += particle.velocity * deltaTime;
+			particle.color.a = (GLubyte)(particle.life * 255.0f);
+		
+	});
+
+	m_sparksParticleBatch = new gengine::ParticleBatch2D();
+	m_sparksParticleBatch->init(1000, 0.03f, gengine::ResourceManager::getTexture("Textures/particle.png"),
+								[](gengine::Particle2D& particle, float deltaTime) {
+
+		//static std::mt19937 randomEngine(time(nullptr));
+		//static std::uniform_real_distribution<float> randRotate(360.0f, 360.0f);
+
+		//particle.velocity = glm::rotate(particle.velocity, randRotate(randomEngine));
+
+		particle.position += particle.velocity * deltaTime;
+		particle.color.a = (GLubyte)(particle.life * 255.0f);
+
+	});
 	m_particleEngine.addParticleBatch(m_bloodParticleBatch);
+	m_particleEngine.addParticleBatch(m_sparksParticleBatch);
 }
 
 
@@ -135,7 +155,7 @@ void MainGame::gameLoop() {
 	gengine::FpsLimiter fpsLimiter;
 	fpsLimiter.setMaxFPS(60.0f);
 
-	const float CAMERAm_SCALE = 1.0f / 4.0f;
+	const float CAMERAm_SCALE = 1.0f / 3.0f;
 	m_camera.setScale(CAMERAm_SCALE);
 
 	const float MSm_PERm_SECOND = 1000;
@@ -236,6 +256,8 @@ void MainGame::updateAgents(float deltaTime) {
 void MainGame::updateBullets(float deltaTime) {
 	for (int i = 0; i < m_bullets.size();) {
 		if (m_bullets[i].update(m_levels[m_currentLevel]->getLevelData(), deltaTime)) {
+			// Add sparks
+			addSparks(m_bullets[i].getPosition(), m_bullets[i].getDirection(), 5);
 			m_bullets[i] = m_bullets.back();
 			m_bullets.pop_back();
 		}
@@ -438,6 +460,38 @@ void MainGame::addBlood(const glm::vec2& position, int numParticles) {
 	gengine::ColorRGBA8 col(255, 0, 0, 255);
 
 	for (int i = 0; i < numParticles; i++) {
-		m_bloodParticleBatch->addParticle(position, glm::rotate(vel, randAngle(randEngine)), col, 25.0f);
+		m_bloodParticleBatch->addParticle(position, glm::rotate(vel, randAngle(randEngine)), col, 35.0f);
+	}
+}
+
+
+void MainGame::addSparks(const glm::vec2& position, const glm::vec2& direction, int numParticles) {
+
+	float radAngle = std::atan2(direction.y, direction.x);
+	float degAngle = (radAngle / M_PI) * 180.0f;
+
+	
+	float reverseAngle = degAngle + 180.0f;
+	
+	std::cout << "Reverse Angle: " << reverseAngle << std::endl;
+
+	float first = (int)(reverseAngle - 20.0f) % 360;
+	float second = (int)(reverseAngle + 20.0f) % 360;
+
+	std::cout << "Reverse Angle - 20: " << first << std::endl;
+	std::cout << "Reverse Angle + 20: " << second << std::endl;
+
+	static std::mt19937 randEngine(time(nullptr));
+	static std::uniform_real_distribution<float> randAngle(first, second);
+
+	glm::vec2 vel(2.0f, 0.0f);
+	gengine::ColorRGBA8 col(253, 200, 6, 255);
+
+	for (int i = 0; i < numParticles; i++) {
+		float randRotate = randAngle(randEngine);
+
+		std::cout << randRotate << std::endl;
+
+		m_sparksParticleBatch->addParticle(position, glm::rotate(vel, randRotate), col, 40.0f);
 	}
 }

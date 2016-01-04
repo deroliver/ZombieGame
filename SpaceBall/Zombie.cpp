@@ -1,6 +1,7 @@
 #include "Zombie.h"
-
 #include "Human.h"
+
+#include <gengine/ResourceManager.h>
 
 Zombie::Zombie() {
 	// Empty
@@ -15,7 +16,9 @@ void Zombie::init(float speed, glm::vec2 position) {
 
 	m_health = 150;
 
-	m_color = gengine::ColorRGBA8(0, 160, 0, 255);
+	m_color = gengine::ColorRGBA8(255, 255, 255, 255);
+
+	m_textureID = gengine::ResourceManager::getTexture("Textures/zombie.png").id;
 }
 
 void Zombie::update(const std::vector<std::string>& levelData, std::vector<Human*>& humans, std::vector<Zombie*>& zombies, float deltatime) {
@@ -26,8 +29,8 @@ void Zombie::update(const std::vector<std::string>& levelData, std::vector<Human
 	Human* closestHuman = getNearestHuman(humans);
 
 	if (closestHuman != nullptr) {
-		glm::vec2 direction = glm::normalize(closestHuman->getPosition() - m_position);
-		m_position += direction * m_speed * deltatime;
+		m_direction = glm::normalize(closestHuman->getPosition() - m_position);
+		m_position += m_direction * m_speed * deltatime;
 	}
 
 	if (collideWithLevel(levelData));

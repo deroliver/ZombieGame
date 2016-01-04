@@ -102,7 +102,7 @@ void Agent::draw(gengine::SpriteBatch& _spriteBatch) {
 	destRect.z = AGENT_WIDTH;
 	destRect.w = AGENT_WIDTH;
 
-	_spriteBatch.draw(destRect, uvRect, _textureID, 0.0f, m_color);
+	_spriteBatch.draw(destRect, uvRect, m_textureID, 0.0f, m_color, m_direction);
 }
 
 

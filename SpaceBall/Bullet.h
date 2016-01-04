@@ -30,6 +30,8 @@ public:
 
 	glm::vec2 getPosition() { return m_position; }
 
+	glm::vec2 getDirection() { return m_direction; }
+
 private:
 
 	bool collideWithWorld(const std::vector<std::string>& levelData);

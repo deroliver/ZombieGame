@@ -1,6 +1,8 @@
 #pragma once
 
 #include <gengine/AudioEngine.h>
+#include <gengine/ParticleEngine2D.h>
+#include <gengine/ParticleBatch2D.h>
 
 #include <glm/glm.hpp>
 
@@ -17,6 +19,10 @@ public:
 
 	void update(bool isMouseDown, const glm::vec2& pos, const glm::vec2& direction, std::vector<Bullet>& bullets, float deltaTime);
 
+	void addGunSmoke(const glm::vec2& position, const glm::vec2 direction, int numParticles);
+
+	gengine::ParticleEngine2D m_particleEngine;
+	gengine::ParticleBatch2D* m_smokeParticleBatch;
 
 private:
 
@@ -37,5 +43,6 @@ private:
 	float m_bulletDamage;
 
 	float m_frameCounter;
+
 };
 

@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include <gengine/ResourceManager.h>
+
 #include "Gun.h"
 
 #include <SDL/SDL.h>
@@ -28,10 +30,9 @@ void Player::init(float speed, glm::vec2 position, gengine::InputManager* inputM
 
 	m_health = 150;
 
-	m_color.r = 0;
-	m_color.g = 0;
-	m_color.b = 185;
-	m_color.a = 255;
+	m_color = gengine::ColorRGBA8(255, 255, 255, 255);
+
+	m_textureID = gengine::ResourceManager::getTexture("Textures/player.png").id;
 }
 
 
@@ -67,16 +68,17 @@ void Player::update(const std::vector<std::string>& levelData, std::vector<Human
 		m_currentGunIndex = 2;
 	}
 
+	glm::vec2 mouseCoords = m_inputManager->getMouseCoords();
+	mouseCoords = m_camera->convertScreenToWorld(mouseCoords);
+
+	glm::vec2 centerPosition = m_position + glm::vec2(AGENT_RADIUS);
+
+	m_direction = glm::normalize(mouseCoords - centerPosition);
+
 
 	if (m_currentGunIndex != -1) {
-		glm::vec2 mouseCoords = m_inputManager->getMouseCoords();
-		mouseCoords = m_camera->convertScreenToWorld(mouseCoords);
-
-		glm::vec2 centerPosition = m_position + glm::vec2(AGENT_RADIUS);
-
-		glm::vec2 direction = glm::normalize(mouseCoords - centerPosition);
-
-		m_guns[m_currentGunIndex]->update(m_inputManager->isKeyDown(SDL_BUTTON_LEFT), centerPosition, direction, * m_bullets, deltaTime);
+	
+		m_guns[m_currentGunIndex]->update(m_inputManager->isKeyDown(SDL_BUTTON_LEFT), centerPosition, m_direction, * m_bullets, deltaTime);
 	}
 
 	collideWithLevel(levelData);

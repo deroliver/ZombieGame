@@ -1,5 +1,7 @@
 #include "Human.h"
 
+#include <gengine/ResourceManager.h>
+
 #include <ctime>
 #include <random>
 
@@ -22,10 +24,7 @@ void Human::init(float speed, glm::vec2 pos) {
 
 	m_health = 20;
 
-	m_color.r = 200;
-	m_color.g = 0;
-	m_color.b = 200;
-	m_color.a = 255;
+	m_color = gengine::ColorRGBA8(255, 255, 255, 255);
 
 
 	m_speed = speed;
@@ -37,6 +36,8 @@ void Human::init(float speed, glm::vec2 pos) {
 	}
 
 	m_direction = glm::normalize(m_direction);
+
+	m_textureID = gengine::ResourceManager::getTexture("Textures/human.png").id;
 }
 
 
